@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://bttoe1l8m6ifd"]
+
+[ext_resource type="Script" path="res://multiplayer.gd" id="1_6mpbj"]
+
+[node name="Multiplayer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6mpbj")
+
+[node name="Net" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Options" type="HBoxContainer" parent="Net"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Net/Options"]
+layout_mode = 2
+text = "Direct:"
+
+[node name="Host" type="Button" parent="Net/Options"]
+layout_mode = 2
+text = "Host"
+
+[node name="Connect" type="Button" parent="Net/Options"]
+layout_mode = 2
+text = "Join"
+
+[node name="Remote" type="LineEdit" parent="Net/Options"]
+layout_mode = 2
+
+[connection signal="pressed" from="Net/Options/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Net/Options/Connect" to="." method="_on_connect_pressed"]

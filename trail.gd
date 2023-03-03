@@ -6,9 +6,6 @@ var cooldown: float = time
 
 var point_index = 0
 
-func _ready():
-	pass
-
 
 func _process(delta):
 	if target != null and cooldown <= 0:
@@ -16,7 +13,8 @@ func _process(delta):
 		add_point(target.position, point_index)
 		cooldown = time
 	
-	if points.size() > 150:
+	if points.size() > 10:
+		point_index -= 1
 		remove_point(0)
 
 	set_point_position(point_index, target.position)
